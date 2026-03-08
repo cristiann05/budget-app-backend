@@ -1,0 +1,24 @@
+info:
+  name: Registro
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/register"
+  body:
+    type: json
+    data: |-
+      {
+          "name": "cristian_as05",
+          "email": "ayalasanchezcristian2000@gmail.com",
+          "password": "Iliatopuriaeselmejor2000@@",
+          "password_confirmation": "Iliatopuriaeselmejor2000@@"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,24 @@
+info:
+  name: Change-email
+  type: http
+  seq: 9
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/account/change-email"
+  body:
+    type: json
+    data: |-
+      {
+          "email": "cristian@email.com",
+          "password": "Iliatopuriaeselmejor2000@@"
+      }
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

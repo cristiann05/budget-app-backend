@@ -1,0 +1,24 @@
+info:
+  name: Create
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: ""
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Comida",
+          "color": "#f0b840"
+      }
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

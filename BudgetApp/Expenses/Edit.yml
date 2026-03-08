@@ -1,0 +1,25 @@
+info:
+  name: Edit
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{BASE_URL}}/allocations/1/expenses/1"
+  body:
+    type: json
+    data: |-
+      {
+          "description": "Mercadona semana 2",
+          "amount": 38.00,
+          "date": "2026-03-08"
+      }
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

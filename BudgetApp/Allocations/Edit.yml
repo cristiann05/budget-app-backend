@@ -1,0 +1,23 @@
+info:
+  name: Edit
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{BASE_URL}}/budgets/2/allocations/1"
+  body:
+    type: json
+    data: |-
+      {
+          "amount": 350.00
+      }
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,26 @@
+*.sqlite*
+
+# Environment
+.env
+.env.backup
+.env.production
+
+# Dependencies
+/vendor
+/node_modules
+
+# Cache y logs
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+bootstrap/cache
+
+# IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

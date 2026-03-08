@@ -1,0 +1,25 @@
+info:
+  name: Create
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/allocations/1/expenses"
+  body:
+    type: json
+    data: |-
+      {
+          "description": "Mercadona",
+          "amount": 45.50,
+          "date": "2026-03-08"
+      }
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

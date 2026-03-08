@@ -1,0 +1,20 @@
+info:
+  name: Delete
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{BASE_URL}}/budgets/2/allocations/1"
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

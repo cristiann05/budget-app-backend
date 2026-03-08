@@ -1,0 +1,24 @@
+info:
+  name: Email-verify
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: http://127.0.0.1:8000/api/email/verify/1/12701a9dfcafb6b40254ea5fc0fcea1e4c603152?expires=1773003614&signature=ad8b9ea1283de670d76ef5ff82e98830e8287af81ae8344fe5c36ad5268700eb
+  params:
+    - name: expires
+      value: "1773003614"
+      type: query
+    - name: signature
+      value: ad8b9ea1283de670d76ef5ff82e98830e8287af81ae8344fe5c36ad5268700eb
+      type: query
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

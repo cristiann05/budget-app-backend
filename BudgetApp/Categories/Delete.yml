@@ -1,0 +1,24 @@
+info:
+  name: Delete
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{BASE_URL}}/categories/1"
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Comida y bebida",
+          "color": "#e0a030"
+      }
+  auth:
+    type: bearer
+    token: "{{TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
