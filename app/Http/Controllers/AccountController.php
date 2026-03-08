@@ -19,8 +19,8 @@ class AccountController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Cerrar todos los tokens menos el actual
-        $user->tokens()->where('id', '!=', $user->currentAccessToken()->id)->delete();
+        // Borrar TODOS los tokens — forzar nuevo login
+        $user->tokens()->delete();
 
         // Notificar al usuario por email
         Mail::raw(
@@ -32,7 +32,7 @@ class AccountController extends Controller
         );
 
         return response()->json([
-            'message' => 'Contraseña cambiada correctamente.',
+            'message' => 'Contraseña cambiada correctamente. Inicia sesión de nuevo.',
         ]);
     }
 
@@ -41,7 +41,7 @@ class AccountController extends Controller
         $user = $request->user();
 
         $user->update([
-            'email'             => $request->email,
+            'email' => $request->email,
             'email_verified_at' => null,
         ]);
 
@@ -58,7 +58,7 @@ class AccountController extends Controller
         $request->validate([
             'password' => ['required', 'string', 'current_password'],
         ], [
-            'password.required'         => 'La contraseña es obligatoria.',
+            'password.required' => 'La contraseña es obligatoria.',
             'password.current_password' => 'La contraseña no es correcta.',
         ]);
 
