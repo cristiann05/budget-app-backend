@@ -3,9 +3,18 @@
 > REST API para gestión de presupuestos personales. Controla tus ingresos, categorías de gasto y registra cada euro que sale de tu bolsillo.
 
 ![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Sanctum](https://img.shields.io/badge/Sanctum-Auth-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-Deploy-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)
+
+---
+
+## 🌐 Producción
+
+> **API en vivo:** https://budget-app-backend-production-b88c.up.railway.app
+>
+> **Documentación:** https://budget-app-backend-production-b88c.up.railway.app/docs/api
 
 ---
 
@@ -30,17 +39,18 @@
 | Tecnología | Uso |
 |------------|-----|
 | Laravel 11 | Framework backend |
-| PHP 8.2 | Lenguaje |
+| PHP 8.4 | Lenguaje |
 | MySQL 8 | Base de datos |
 | Laravel Sanctum | Autenticación con tokens |
 | Resend | Envío de emails transaccionales |
 | Scramble | Documentación API automática |
+| Railway | Hosting y base de datos en producción |
 
 ---
 
 ## 📋 Requisitos
 
-- PHP >= 8.2
+- PHP >= 8.4
 - Composer
 - MySQL 8
 - Cuenta en [Resend](https://resend.com) (gratis)
@@ -107,6 +117,12 @@ Una vez iniciado el servidor, accede a la documentación interactiva en:
 
 ```
 http://localhost:8000/docs/api
+```
+
+O en producción:
+
+```
+https://budget-app-backend-production-b88c.up.railway.app/docs/api
 ```
 
 ---
