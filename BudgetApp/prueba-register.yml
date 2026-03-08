@@ -1,0 +1,15 @@
+info:
+  name: prueba-register
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: https://budget-app-backend-production-b88c.up.railway.app/api/register
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

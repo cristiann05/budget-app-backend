@@ -1,7 +1,5 @@
 <?php
 
-use Dedoc\Scramble\Http\Middleware\RestrictedDocsAccess;
-
 return [
     'api_path' => 'api',
 
@@ -61,7 +59,6 @@ Usa **Bearer Token**. Consigue tu token en `/api/login` o `/api/register` y pég
 
     'middleware' => [
         'web',
-        RestrictedDocsAccess::class,
     ],
 
     'extensions' => [],
