@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('throttle:6,1')
         ->name('verification.send');
 
+    Route::post('/email/verify-code', [AuthController::class, 'verifyCode']);
+
     // Rutas protegidas — requiere estar verificado
     Route::middleware(['throttle:60,1', 'verified'])->group(function () {
 
