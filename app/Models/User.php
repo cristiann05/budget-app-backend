@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+// Modelo User: entidad de usuarios para API, con tokens y datos mínimos.
+// Se eliminó verificación de correo de la lógica de backend.
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;

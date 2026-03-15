@@ -3,11 +3,9 @@
 use Laravel\Sanctum\Sanctum;
 
 return [
-    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
-        '%s%s',
-        'localhost,localhost:3000,localhost:4200,127.0.0.1,127.0.0.1:8000,::1',
-        Sanctum::currentApplicationUrlWithPort(),
-    ))),
+    // En entorno backend-only, el frontend no debe estar acoplado en el estado de Sanctum.
+// Se usa SANCTUM_STATEFUL_DOMAINS vacío o con dominios de API válidos.
+'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', '')),
 
     'guard' => ['web'],
 

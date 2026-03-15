@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ChangeEmailRequest;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 
+// Controlador de gestión de cuenta. Soporta contraseñas y eliminación de cuenta.
+// Ya no realiza acciones sobre email ni redirecciones a front-end.
 class AccountController extends Controller
 {
     public function changePassword(ChangePasswordRequest $request)
@@ -22,34 +22,8 @@ class AccountController extends Controller
         // Borrar TODOS los tokens — forzar nuevo login
         $user->tokens()->delete();
 
-        // Notificar al usuario por email
-        Mail::raw(
-            'Tu contraseña ha sido cambiada. Si no fuiste tú, contacta con soporte inmediatamente.',
-            function ($message) use ($user) {
-                $message->to($user->email)
-                    ->subject('⚠️ Tu contraseña ha sido cambiada — BudgetApp');
-            }
-        );
-
         return response()->json([
             'message' => 'Contraseña cambiada correctamente. Inicia sesión de nuevo.',
-        ]);
-    }
-
-    public function changeEmail(ChangeEmailRequest $request)
-    {
-        $user = $request->user();
-
-        $user->update([
-            'email' => $request->email,
-            'email_verified_at' => null,
-        ]);
-
-        // Reenviar verificación al nuevo email
-        $user->sendEmailVerificationNotification();
-
-        return response()->json([
-            'message' => 'Email actualizado. Te hemos enviado un email de verificación.',
         ]);
     }
 

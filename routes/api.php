@@ -5,8 +5,6 @@ use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AllocationController;
 use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\EmailVerificationController;
-use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
@@ -15,28 +13,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('throttle:5,1')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/forgot-password', [PasswordResetController::class, 'forgotPassword']);
-    Route::post('/reset-password', [PasswordResetController::class, 'resetPassword']);
 });
 
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    Route::post('/email/resend', [EmailVerificationController::class, 'resend'])
-        ->middleware('throttle:6,1')
-        ->name('verification.send');
-
-    Route::post('/email/verify-code', [AuthController::class, 'verifyCode']);
-
-    // Rutas protegidas — requiere estar verificado
-    Route::middleware(['throttle:60,1', 'verified'])->group(function () {
+    // Rutas protegidas — ya no se requiere verificación de email
+    Route::middleware(['throttle:60,1'])->group(function () {
 
         Route::post('/logout-all', [AuthController::class, 'logoutAll']);
 
         // Cuenta
         Route::post('/account/change-password', [AccountController::class, 'changePassword']);
-        Route::post('/account/change-email', [AccountController::class, 'changeEmail']);
         Route::delete('/account', [AccountController::class, 'deleteAccount']);
 
         Route::apiResource('/users', UserController::class)->except('store', 'create');
