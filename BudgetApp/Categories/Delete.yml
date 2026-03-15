@@ -8,11 +8,7 @@ http:
   url: "{{BASE_URL}}/categories/1"
   body:
     type: json
-    data: |-
-      {
-          "name": "Comida y bebida",
-          "color": "#e0a030"
-      }
+    data: ""
   auth:
     type: bearer
     token: "{{TOKEN}}"

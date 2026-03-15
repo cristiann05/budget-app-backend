@@ -10,8 +10,8 @@ http:
     type: json
     data: |-
       {
-          "email": "cristian@test.com",
-          "password": "password123"
+          "email": "ayalasanchezcristian2000@gmail.com",
+          "password": "nuevapassword123"
       }
   auth:
     type: bearer

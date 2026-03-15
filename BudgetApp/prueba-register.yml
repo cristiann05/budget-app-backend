@@ -6,6 +6,15 @@ info:
 http:
   method: POST
   url: https://budget-app-backend-production-b88c.up.railway.app/api/register
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Cristian",
+          "email": "ayalasanchezcristian2000@gmail.com",
+          "password": "password123",
+          "password_confirmation": "password123"
+      }
   auth: inherit
 
 settings:
