@@ -4,6 +4,6 @@
         "builder": "RAILPACK"
     },
     "deploy": {
-        "startCommand": "/start-container.sh"
+        "startCommand": "php artisan config:clear && php artisan migrate --force && /start-container.sh"
     }
 }
