@@ -15,5 +15,15 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/email/verify/{id}/{hash}', function ($id, $hash) {
-    return redirect('http://localhost:4200/auth/email/verify/' . $id . '/' . $hash . '?' . request()->getQueryString());
-})->name('verification.verify');
+    $user = \App\Models\User::findOrFail($id);
+
+    if (! hash_equals(sha1($user->getEmailForVerification()), $hash)) {
+        return redirect('http://localhost:4200/auth/login?verified=error');
+    }
+
+    if (! $user->hasVerifiedEmail()) {
+        $user->markEmailAsVerified();
+    }
+
+    return redirect('http://localhost:4200/auth/login?verified=1');
+})->middleware('signed')->name('verification.verify');
